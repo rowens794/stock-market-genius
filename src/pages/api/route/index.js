@@ -2,13 +2,13 @@ const client = require("@mailchimp/mailchimp_marketing");
 
 export default async function handler(req, res) {
   client.setConfig({
-    apiKey: "09edca760b3a524f10cd214772c2c40b-us1",
-    server: "us1",
+    apiKey: process.env.apiKey,
+    server: process.env.serverLocation,
   });
 
   const run = async () => {
     let errors = null;
-    const response = await client.lists.batchListMembers("9e34ffed24", {
+    const response = await client.lists.batchListMembers(process.env.listID, {
       members: [
         {
           email_address: req.headers.email,

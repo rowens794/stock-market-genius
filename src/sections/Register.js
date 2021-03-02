@@ -43,7 +43,7 @@ const Register = () => {
         Email:
       </label>
       <br />
-      <input type="text" id="email" name="email" defaultValue="john@gmail.com" sx={styles.input}></input>
+      <input type="text" id="email" name="email" defaultValue="example@mail.com" sx={styles.input}></input>
       <br />
       <br />
       <br />
