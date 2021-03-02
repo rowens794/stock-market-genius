@@ -4,6 +4,7 @@ import react, { useState } from "react";
 import { jsx, Button } from "theme-ui";
 import { rgba } from "polished";
 import SectionHeading from "components/section-heading";
+import { logEvent } from "../analytics/index";
 
 const Register = () => {
   let [submissionState, setSubmissionState] = useState(null);
@@ -23,7 +24,10 @@ const Register = () => {
     })
       .then((res) => res.text())
       .then(function (data) {
-        if (!data) setSubmissionState("SUBMITTED");
+        if (!data) {
+          setSubmissionState("SUBMITTED");
+          logEvent("Registration", "Registered");
+        }
         if (data === "ERROR_CONTACT_EXISTS") {
           setSubmissionState("ERROR_CONTACT_EXISTS");
         } else if (data) setSubmissionState("ERROR");
