@@ -7,7 +7,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SectionHeading from "components/section-heading";
 import TeamMember from "components/cards/team-member";
 
-import screenshot1 from "assets/images/Screen1.png";
+import screenshot1 from "assets/images/video.jpg";
+import screenshot2 from "assets/images/Docs.jpg";
+import screenshot3 from "assets/images/Tips.jpg";
+import screenshot4 from "assets/images/software.jpg";
 import arrowRight from "assets/images/icons/arrow-right.png";
 
 SwiperCore.use([Navigation, Pagination]);
@@ -21,21 +24,21 @@ const data = [
   },
   {
     id: 2,
-    avatar: screenshot1,
+    avatar: screenshot2,
     name: "Engaging Stories",
     designation:
       "Following the video content for each lesson you and your child will be presented with a case study and worksheet to cement the ideas that were learned in the videos.",
   },
   {
     id: 3,
-    avatar: screenshot1,
+    avatar: screenshot3,
     name: "Tips From a Real Market Pro",
     designation:
       "In addition to the case studies, I provide real world data sources I used as an institutional investment advisor managing over $2 billion in client assets.",
   },
   {
     id: 4,
-    avatar: screenshot1,
+    avatar: screenshot4,
     name: "Real World Trading Simulation",
     designation:
       "The course is capstoned with a trading simulation that incorporates real world data and decision points into a multi-day exercies that will give your child a taste or real world trading.",
@@ -112,12 +115,12 @@ const OurTeam = () => {
         }}
       >
         {currentIndex !== 0 && (
-          <button onClick={handlePrev} className="swiper-arrow swiper-arrow-left">
+          <button onClick={handlePrev} className="swiper-arrow swiper-arrow-left button">
             <Image src={arrowRight} alt="arrow left" />
           </button>
         )}
         {!isEnd && (
-          <button className="swiper-arrow swiper-arrow-right" onClick={handleNext}>
+          <button className="swiper-arrow swiper-arrow-right button" onClick={handleNext}>
             <Image src={arrowRight} alt="arrow right" />
           </button>
         )}
@@ -153,7 +156,7 @@ const styles = {
     pr: [6, null, null, 0],
     transition: "0.3s ease-in-out 0s",
     ".swiper-arrow": {
-      backgroundColor: "light-grey",
+      backgroundColor: "#F3F4F5",
       border: 0,
       cursor: "pointer",
       padding: 0,
@@ -185,6 +188,11 @@ const styles = {
       img: {
         marginRight: "-4px",
       },
+    },
+    ".button": {
+      WebkitBoxShadow: "5px 5px 10px -3px rgba(0,0,0,0.6)",
+      boxShadow: "5px 5px 10px -3px rgba(0,0,0,0.6)",
+      filter: "brightness(90%) grayscale(0%)",
     },
   },
 };

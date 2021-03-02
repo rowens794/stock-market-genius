@@ -7,7 +7,9 @@ const TeamMember = ({ member }) => {
   return (
     <Box sx={styles.section}>
       <Flex as="figure" sx={styles.avatar}>
-        <Image src={member?.avatar} alt={member?.name} />
+        <div>
+          <Image src={member?.avatar} alt={member?.name} sx={styles.image} />
+        </div>
       </Flex>
       <Box sx={styles.about}>
         <Heading as="h3">{member?.name}</Heading>
@@ -47,5 +49,11 @@ const styles = {
       display: "inline-flex",
       mr: [2],
     },
+  },
+  image: {
+    borderRadius: "10px",
+    WebkitBoxShadow: "5px 5px 10px -3px rgba(0,0,0,0.4)",
+    boxShadow: "5px 5px 10px -3px rgba(0,0,0,0.4)",
+    filter: "brightness(95%) grayscale(10%)",
   },
 };

@@ -3,7 +3,7 @@
 import { jsx, Box, Container, Button, Image } from "theme-ui";
 import { rgba } from "polished";
 import SectionHeading from "components/section-heading";
-import illustration from "assets/images/banner-illustration.png";
+import illustration from "assets/images/hero.png";
 
 const Banner = () => {
   return (

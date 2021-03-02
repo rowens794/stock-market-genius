@@ -25,7 +25,7 @@ const data = [
     id: 3,
     icon: icon3,
     title: "Invest For Yourself",
-    description: `Dive into our 10 year trading simulation to see exactly how it feels to be a real life investor.`,
+    description: `Dive into the trading simulation to see exactly how it feels to be a real life investor.`,
   },
 ];
 
@@ -36,7 +36,7 @@ const Services = () => {
         <SectionHeading
           sx={styles.heading}
           title="About the Course"
-          description="Engage your middle-school aged children in financial education that they will be excited to consume."
+          description="Engage middle & high school aged children in financial education that they will be excited about."
         />
         <Box sx={styles.contentWrapper}>
           {data?.map((item) => (

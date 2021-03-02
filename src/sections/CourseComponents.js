@@ -34,14 +34,14 @@ const data = [
     id: 5,
     section: "Trading Sim",
     author: "See how investing works in real life",
-    quote: `Our custom investing simulator allows your children to get a sense of how investing works in the real world.  The simulator follows 10 companies over a 10 year peoriod.  Over the course of 2 weeks your child research and "invest" in these stocks to grow their portfolio.`,
+    quote: `Custom investing simulator that allows your children to get a sense of how investing works in the real world.  The simulator follows 10 companies over a 10 year peoriod.  Over the course of 2 weeks your child research and "invest" in these stocks to grow their portfolio.`,
   },
 ];
 
 const Testimonials = () => {
   let mobileLessons = data.map((item) => {
     return (
-      <Box as="blockquote">
+      <Box as="blockquote" key={item.id}>
         <Text sx={styles.sectionHeading}>{item.section}</Text>
         <Text sx={styles.author}>{item.author}</Text>
         {item.quote}

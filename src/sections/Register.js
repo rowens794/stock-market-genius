@@ -1,10 +1,35 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
+import react, { useState } from "react";
 import { jsx, Button } from "theme-ui";
 import { rgba } from "polished";
 import SectionHeading from "components/section-heading";
 
 const Register = () => {
+  let [submissionState, setSubmissionState] = useState(null);
+
+  const subscribeHandler = async () => {
+    let apiUrl = "http://localhost:3000";
+    process.env.NODE_ENV !== "development" ? (apiUrl = "https://beastockmarketgenius.com/") : null;
+
+    let email = document.getElementById("email").value;
+
+    fetch(`${apiUrl}/api/route`, {
+      method: "GET", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+        email: email,
+      },
+    })
+      .then((res) => res.text())
+      .then(function (data) {
+        if (!data) setSubmissionState("SUBMITTED");
+        if (data === "ERROR_CONTACT_EXISTS") {
+          setSubmissionState("ERROR_CONTACT_EXISTS");
+        } else if (data) setSubmissionState("ERROR");
+      });
+  };
+
   return (
     <div style={{ marginTop: "150px" }} sx={styles.pageBody} id="register">
       {/* <Container> */}
@@ -14,26 +39,22 @@ const Register = () => {
         as soon as production has wrapped.
       </div>
 
-      <form action="">
-        <label for="fname" sx={styles.label}>
-          Name:
-        </label>
-        <br />
-        <input type="text" id="fname" name="fname" defaultValue="John" sx={styles.input}></input>
-        <br />
-        <br />
+      <label htmlFor="email" sx={styles.label}>
+        Email:
+      </label>
+      <br />
+      <input type="text" id="email" name="email" defaultValue="john@gmail.com" sx={styles.input}></input>
+      <br />
+      <br />
+      <br />
 
-        <label for="fname" sx={styles.label}>
-          Email:
-        </label>
-        <br />
-        <input type="text" id="fname" name="fname" defaultValue="john@gmail.com" sx={styles.input}></input>
-        <br />
-        <br />
-        <br />
-
+      <div onClick={subscribeHandler}>
         <Button>Submit Registration</Button>
-      </form>
+      </div>
+
+      {submissionState === "SUBMITTED" ? <p>Submission recieved</p> : null}
+      {submissionState === "ERROR_CONTACT_EXISTS" ? <p>You've already registered</p> : null}
+      {submissionState === "ERROR" ? <p>There was an error with your submission, please check your email address.</p> : null}
       <div style={{ height: "30vh" }}></div>
     </div>
   );

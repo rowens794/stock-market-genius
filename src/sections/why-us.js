@@ -5,7 +5,9 @@ import Tabs, { TabPane } from "rc-tabs";
 import { RiCheckboxCircleFill } from "react-icons/ri";
 import { rgba } from "polished";
 import { LearnMore } from "components/link";
-import tabImage1 from "assets/images/tab-illustration-1.png";
+import tabImage1 from "assets/images/Enroll-Now.png";
+import tabImage2 from "assets/images/Have-Fun.png";
+import tabImage3 from "assets/images/Keep-Learning.png";
 
 const data = [
   {
@@ -19,11 +21,11 @@ const data = [
   },
   {
     id: 2,
-    tabTitle: "Our Promise",
+    tabTitle: "My Promise",
     title: `You'll have fun and learn something too`,
     description: `As the parent of young children myself, I understand the need to make learning enjoyable.  I've worked hard in this course to make the content fun and easily relateable to the real world.  `,
     moreLink: "#register",
-    image: tabImage1,
+    image: tabImage2,
     list: [],
   },
   {
@@ -32,7 +34,7 @@ const data = [
     title: `Don't Stop Learning`,
     description: `After the course is over leverage your child's current enthusiam to keep building on these important financial concepts.  Buy some investing books, open a paper trading account, perhaps even consider funding a brokerage account if your child is ready.`,
     moreLink: "#register",
-    image: tabImage1,
+    image: tabImage3,
     list: [],
   },
 ];
