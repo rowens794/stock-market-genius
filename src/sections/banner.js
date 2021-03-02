@@ -70,7 +70,7 @@ const styles = {
     display: ["block", null, null, "flex"],
     position: "relative",
     img: {
-      display: ["none", null, null, "block"],
+      display: ["block", null, null, "block"],
       maxWidth: ["90%"],
       m: ["0 auto"],
     },

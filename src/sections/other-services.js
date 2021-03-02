@@ -35,11 +35,7 @@ const OtherServices = () => {
   return (
     <Box as="section" sx={styles.section}>
       <Container>
-        <SectionHeading
-          sx={styles.heading}
-          title="What Skills will be Learned"
-          description="Over the course of the curriculum your child will learn:"
-        />
+        <SectionHeading sx={styles.heading} title="What You'll Learn" description="Over the course of the curriculum your child will learn:" />
         <Box sx={styles.contentWrapper}>
           {data?.map((item) => (
             <Service key={item.id} item={item} />

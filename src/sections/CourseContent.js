@@ -32,16 +32,16 @@ const data = [
   {
     id: 3,
     avatar: screenshot3,
-    name: "Tips From a Real Market Pro",
+    name: "Tips From a Market Pro",
     designation:
-      "In addition to the case studies, I provide real world data sources I used as an institutional investment advisor managing over $2 billion in client assets.",
+      "Throughout the course I provide advice on real world data sources and strategies I used as an institutional investment advisor to find sucess.",
   },
   {
     id: 4,
     avatar: screenshot4,
     name: "Real World Trading Simulation",
     designation:
-      "The course is capstoned with a trading simulation that incorporates real world data and decision points into a multi-day exercies that will give your child a taste or real world trading.",
+      "Take the lessons learned into the trading simulation that incorporates real world data and decision points into a multi-day exercies that will give your child a taste or real world trading.",
   },
 ];
 
