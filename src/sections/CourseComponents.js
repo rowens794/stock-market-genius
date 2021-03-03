@@ -16,25 +16,25 @@ const data = [
     id: 2,
     section: "Lesson 2",
     author: "How does a stock work?",
-    quote: `Making the conceptual leap from understanding a business to understanding the stock of a given business business can be hard.  In lesson 2 we break down exactly what it means to own stock in a company that your child will be immediately familiar with: Disney.`,
+    quote: `Making the conceptual leap from understanding a business to understanding the stock of a given business business can be hard.  In lesson 2 we break down exactly what it means to own stock in a company that you're already familiar with: The Walt Disney Company.`,
   },
   {
     id: 3,
     section: "Lesson 3",
     author: "What is a stock worth?",
-    quote: `It's obvious to children that companies should be worth something: Companies own actual stuff after all.  But estimating a value for what a company is worth is not obvious at all.  I this lesson we layout an easy to learn framework for doing exactly that.`,
+    quote: `It's obvious that companies should be worth something: Companies own actual stuff after all.  But how to estimate a value for what a company is worth is not at all obvious.  In this lesson, I layout an easy to learn framework for valuing a company.`,
   },
   {
     id: 4,
     section: "Lesson 4",
     author: "Real world case studies",
-    quote: `In the fourth lesson we analyze 3 real world case studies of companies that your child will know and understand: Coca-Cola, Mcdonald's, and Amazon.  We look at how these businesses operate and work through an analysis of each to assign a value to each stock.`,
+    quote: `In the fourth lesson we will analyze 3 real world case studies of companies that you already know and probably understand: Coca-Cola, Mcdonald's, and Amazon.  We look at how these businesses operate and work through an analysis of each to assign a value to the stocks.`,
   },
   {
     id: 5,
     section: "Trading Sim",
     author: "See how investing works in real life",
-    quote: `Custom investing simulator that allows your children to get a sense of how investing works in the real world.  The simulator follows 10 companies over a 10 year peoriod.  Over the course of 2 weeks your child research and "invest" in these stocks to grow their portfolio.`,
+    quote: `The investing simulator allows you to get a sense of how investing works in the real world.  It follows 5 companies over a 10 year peoriod.  Every two days for 3 weeks you will recieve real world information about these companies and be asked to make an investment decision to grow your portfolio.`,
   },
 ];
 

@@ -13,7 +13,7 @@ const Banner = () => {
           <SectionHeading
             sx={styles.heading}
             title="So You Want to be a Stock Market Genius?"
-            description="A fun family-friendly approach to learning about stocks and business."
+            description="An easily understandable approach to learning about stocks and business."
           />
           <Box as="figure" sx={styles.illustration}>
             <Box sx={styles.buttonWrapper}>

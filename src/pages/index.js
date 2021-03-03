@@ -1,4 +1,5 @@
 import { ThemeProvider } from "theme-ui";
+import dynamic from "next/dynamic";
 import theme from "theme";
 import SEO from "components/seo";
 import Layout from "components/layout";
@@ -8,9 +9,9 @@ import CourseComponents from "sections/CourseComponents";
 import CourseContent from "sections/CourseContent";
 import OtherServices from "sections/other-services";
 import WhyUs from "sections/why-us";
-import Register from "sections/Register";
 import SubscribeUs from "sections/subscribe-us";
 import Blog from "sections/blog";
+const Register = dynamic(() => import("sections/Register"), { ssr: false });
 
 export default function IndexPage() {
   return (

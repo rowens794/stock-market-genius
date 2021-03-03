@@ -26,8 +26,8 @@ const data = [
   {
     id: 3,
     icon: icon6,
-    title: "Business Valuation",
-    description: `Estimate the value of a business with the intent of converting that valuation into an investment decision.`,
+    title: "Company Valuation",
+    description: `Estimate the value of a business and convert that estimate into an investment decision.`,
   },
 ];
 

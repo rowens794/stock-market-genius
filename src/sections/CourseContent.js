@@ -27,21 +27,21 @@ const data = [
     avatar: screenshot2,
     name: "Engaging Stories",
     designation:
-      "Following the video content for each lesson you and your child will be presented with a case study and worksheet to cement the ideas that were learned in the videos.",
+      "Following the video content for each lesson you will be presented with a case story and worksheet to cement the ideas that were covered in the videos.",
   },
   {
     id: 3,
     avatar: screenshot3,
     name: "Tips From a Market Pro",
     designation:
-      "Throughout the course I provide advice on real world data sources and strategies I used as an institutional investment advisor to find sucess.",
+      "Throughout the course I provide advice on real world data sources and strategies I used as an institutional investment advisor to find success.",
   },
   {
     id: 4,
     avatar: screenshot4,
     name: "Real World Trading Simulation",
     designation:
-      "Take the lessons learned into the trading simulation that incorporates real world data and decision points into a multi-day exercies that will give your child a taste or real world trading.",
+      "Take the lessons learned into the trading simulation that incorporates real world data into a 3 exercise that will give you a taste or real world investing.",
   },
 ];
 

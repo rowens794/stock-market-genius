@@ -25,7 +25,7 @@ const data = [
     id: 3,
     icon: icon3,
     title: "Invest For Yourself",
-    description: `Dive into the trading simulation to see exactly how it feels to be a real life investor.`,
+    description: `Dive into the trading simulation to see exactly how it feels to be an investor with skin in the game.`,
   },
 ];
 
@@ -33,11 +33,7 @@ const Services = () => {
   return (
     <Box as="section" id="about-course" sx={styles.section}>
       <Container>
-        <SectionHeading
-          sx={styles.heading}
-          title="About the Course"
-          description="Engage middle & high school aged children in financial education that they will be excited about."
-        />
+        <SectionHeading sx={styles.heading} title="About the Course" description="Learn about investing in stocks without needing an MBA." />
         <Box sx={styles.contentWrapper}>
           {data?.map((item) => (
             <Service key={item.id} item={item} />

@@ -1,10 +1,11 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import react, { useState } from "react";
+import react, { useState, useEffect } from "react";
 import { jsx, Button } from "theme-ui";
 import { rgba } from "polished";
 import SectionHeading from "components/section-heading";
 import { logEvent } from "../analytics/index";
+import RedditPixel from "react-reddit-pixel";
 
 const Register = () => {
   let [submissionState, setSubmissionState] = useState(null);
@@ -25,8 +26,9 @@ const Register = () => {
       .then((res) => res.text())
       .then(function (data) {
         if (!data) {
-          setSubmissionState("SUBMITTED");
           logEvent("Registration", "Registered");
+          RedditPixel.track("Lead");
+          setSubmissionState("SUBMITTED");
         }
         if (data === "ERROR_CONTACT_EXISTS") {
           setSubmissionState("ERROR_CONTACT_EXISTS");
@@ -34,13 +36,27 @@ const Register = () => {
       });
   };
 
+  useEffect(() => {
+    //initialize reddit tracking
+    const options = {
+      debug: false, // set true to enable logs
+    };
+
+    RedditPixel.init(process.env.redditPixel, options);
+  }, []);
+
   return (
     <div style={{ marginTop: "150px" }} sx={styles.pageBody} id="register">
       {/* <Container> */}
       <SectionHeading sx={styles.heading} title="Register for the Course!" />
       <div sx={styles.textContent}>
-        I am currently recording, editing, and finalizing all of the course content. But I'd love it if you'd join the waitlist and I'll let you know
-        as soon as production has wrapped.
+        I am currently preparing, recording and editing all of the course content. But I'd love it if you'd join the waitlist and I'll let you know as
+        soon as production has wrapped. As a bonus for pre-registering, I'll be sure to keep you up-to-date on my progress and send you preview
+        material as I finish each section.
+      </div>
+
+      <div sx={styles.textContent}>
+        Just to be clear, this is a <b>free course</b>. I'm not going to ask you to pay once it's complete.
       </div>
 
       <label htmlFor="email" sx={styles.label}>
