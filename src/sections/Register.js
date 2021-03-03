@@ -36,15 +36,6 @@ const Register = () => {
       });
   };
 
-  useEffect(() => {
-    //initialize reddit tracking
-    const options = {
-      debug: false, // set true to enable logs
-    };
-
-    RedditPixel.init(process.env.redditPixel, options);
-  }, []);
-
   return (
     <div style={{ marginTop: "150px" }} sx={styles.pageBody} id="register">
       {/* <Container> */}
