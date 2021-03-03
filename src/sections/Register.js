@@ -5,7 +5,7 @@ import { jsx, Button } from "theme-ui";
 import { rgba } from "polished";
 import SectionHeading from "components/section-heading";
 import { logEvent } from "../analytics/index";
-import RedditPixel from "react-reddit-pixel";
+// import RedditPixel from "react-reddit-pixel";
 
 const Register = () => {
   let [submissionState, setSubmissionState] = useState(null);
@@ -27,7 +27,7 @@ const Register = () => {
       .then(function (data) {
         if (!data) {
           logEvent("Registration", "Registered");
-          RedditPixel.track("Lead");
+          // RedditPixel.track("Lead");
           setSubmissionState("SUBMITTED");
         }
         if (data === "ERROR_CONTACT_EXISTS") {
