@@ -13,9 +13,5 @@ export default function CustomApp({ Component, pageProps }) {
     Router.events.on("routeChangeComplete", logPageView);
   }, []);
 
-  useEffect(() => {
-    console.log(window);
-  }, []);
-
   return <Component {...pageProps} />;
 }
