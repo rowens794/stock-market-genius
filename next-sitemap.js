@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: "https://beastockmarketgenius.vercel.app",
+  siteUrl: "https://beastockmarketgenius.com",
   generateRobotsTxt: true,
   // optional
   // robotsTxtOptions: {
