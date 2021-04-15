@@ -1,0 +1,25 @@
+.container {
+  padding: 0.5rem 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.activeButton {
+  font-weight: 300;
+  font-size: 0.8rem;
+  max-width: 120px;
+  color: #0a8080;
+  cursor: pointer;
+  margin: 0.25rem;
+  text-decoration: none;
+}
+
+.inactiveButton {
+  font-weight: 300;
+  font-size: 0.8rem;
+  max-width: 120px;
+  color: #7b8188;
+  cursor: pointer;
+  margin: 0.25rem;
+}

@@ -1,0 +1,18 @@
+.container {
+  text-align: center;
+  cursor: pointer;
+}
+
+.icon {
+  display: inline-block;
+  position: absolute;
+  margin: auto;
+  z-index: 1;
+}
+
+.underProduction {
+  /* position: absolute; */
+  margin: auto;
+  font-size: 2rem;
+  font-weight: 600;
+}

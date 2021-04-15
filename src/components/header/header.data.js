@@ -15,8 +15,4 @@ export default [
     path: "why-enroll",
     label: "Why Enroll",
   },
-  {
-    path: "register",
-    label: "Register",
-  },
 ];

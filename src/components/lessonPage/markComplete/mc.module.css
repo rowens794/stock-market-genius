@@ -1,0 +1,30 @@
+.container {
+  margin: 3rem;
+}
+
+.buttonIncomplete {
+  border: 1px solid #0a8080;
+  max-width: 200px;
+  margin: auto;
+  text-align: center;
+  cursor: pointer;
+}
+
+.buttonComplete {
+  border: 1px solid #0a8080;
+  background-color: #0a8080;
+  max-width: 200px;
+  margin: auto;
+  text-align: center;
+  cursor: pointer;
+}
+
+.textComplete {
+  font-weight: 600;
+  color: white;
+}
+
+.textIncomplete {
+  font-weight: 600;
+  color: #0a8080;
+}

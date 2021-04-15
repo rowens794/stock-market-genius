@@ -1,0 +1,38 @@
+.container {
+  padding: 0rem 1rem;
+}
+
+.header {
+  margin: 2rem 0 0 0;
+}
+
+.lessonIndicator {
+  font-size: 0.9rem;
+  color: #7b8188;
+  margin: 0;
+  padding: 0;
+}
+
+.bbContainer {
+  width: 100%;
+  margin: 4rem auto;
+  text-align: center;
+}
+
+.blueBox {
+  width: 90%;
+  padding: 2rem;
+  border-radius: 2px;
+  display: inline-block;
+  background-color: #f3f4f5;
+  text-align: left;
+}
+
+.bbTitle {
+  font-weight: 600;
+}
+
+.imageContainer {
+  width: 100%;
+  text-align: center;
+}

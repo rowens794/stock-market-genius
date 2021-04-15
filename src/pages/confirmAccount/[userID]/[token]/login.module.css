@@ -1,0 +1,28 @@
+.bodyContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 75px;
+  min-height: calc(100vh - 250px);
+}
+
+.featuresSection {
+  background-color: var(--lightGrey);
+  border-radius: 4px;
+  padding: 48px;
+}
+
+.accountConfirmed {
+  margin: 3rem auto;
+  width: 100%;
+  text-align: center;
+}
+
+@media only screen and (max-width: 900px) {
+  .bodyContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .featuresSection {
+    display: none;
+  }
+}

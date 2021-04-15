@@ -1,0 +1,40 @@
+.container {
+  text-align: center;
+  border-bottom: 3px solid #e5e5e6;
+}
+
+.overFlowContainer {
+  width: 100%;
+  overflow: hidden;
+  overflow-x: scroll;
+  height: 3rem;
+}
+
+.itemContainer {
+  display: flex;
+  margin: auto;
+  width: 600px;
+  /* overflow: hidden; */
+}
+
+.navSelection {
+  font-weight: 600;
+  margin: 0 1rem;
+  line-height: 3rem;
+  text-decoration: underline;
+  color: #0a8080;
+  cursor: pointer;
+}
+
+.navItem {
+  font-weight: 600;
+  margin: 0 1rem;
+  line-height: 3rem;
+  cursor: pointer;
+}
+
+.navDivider {
+  font-weight: 600;
+  margin: 0 1rem;
+  line-height: 3rem;
+}

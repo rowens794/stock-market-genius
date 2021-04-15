@@ -1,0 +1,87 @@
+.container {
+  width: 300px;
+  margin: auto;
+  margin-top: 20vh;
+  min-height: 100px;
+}
+
+.title {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--darkGreen);
+  text-align: center;
+}
+
+.subtitle {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--darkGreen);
+  text-align: center;
+}
+
+.inputContainer {
+  margin: 28px;
+}
+
+.inputLabel {
+  padding: 0;
+  margin: 0;
+}
+
+.inputBox {
+  width: 100%;
+  height: 36px;
+  padding: 8px;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--darkText);
+  border-radius: 4px;
+}
+
+.loginButton {
+  width: 100%;
+  padding: 8px;
+  height: 36px;
+  background-color: var(--darkGreen);
+  color: var(--white);
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.loginButton:hover {
+  cursor: pointer;
+}
+
+.forgotPasswordContainer {
+  width: 100%;
+  text-align: right;
+}
+
+.forgotPasswordLink {
+  color: var(--green);
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.forgotPasswordLink:hover {
+  color: var(--darkGreen);
+}
+
+.errorContainer {
+  width: 100%;
+  text-align: center;
+}
+
+.errMsg {
+  color: var(--error);
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+}

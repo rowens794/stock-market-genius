@@ -1,0 +1,32 @@
+.container {
+  padding: 1rem;
+}
+
+.linkContainerA {
+  text-decoration: none;
+  border-radius: 2px;
+}
+
+.linkContainer {
+  margin: 2rem;
+}
+
+.linkContainer:hover {
+  color: rgb(179, 179, 179);
+}
+
+.name {
+  font-weight: 600;
+  color: #0a8080;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+.desc {
+  font-weight: 400;
+  text-decoration: none;
+  color: #10132d;
+  margin: 0;
+  padding: 0;
+}

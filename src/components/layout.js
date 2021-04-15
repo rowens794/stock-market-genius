@@ -9,7 +9,6 @@ export default function Layout({ children }) {
       sx={{
         minHeight: "100vh",
         flexDirection: "column",
-        justifyContent: "space-between",
       }}
     >
       <Header />

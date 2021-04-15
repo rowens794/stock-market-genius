@@ -1,14 +1,57 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
+import React, { useContext, useEffect } from "react";
 import { jsx, Box, Container, Button } from "theme-ui";
 import Sticky from "react-stickynode";
+import Link from "next/link";
+
 import Logo from "components/logo";
 import { NavLink } from "components/link";
+import { userContext } from "../../contexts/user";
 import { DrawerProvider } from "contexts/drawer/drawer-provider";
 import NavbarDrawer from "./navbar-drawer";
-import menuItems from "./header.data";
 
 export default function Header() {
+  const [user, setUser] = useContext(userContext);
+
+  useEffect(() => {
+    const tryLogin = async () => {
+      const res = await fetch(`/api/user/verifyjwt`, {
+        method: "POST", // or 'PUT'
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          token: window.localStorage.getItem("mg-token"),
+        }),
+      });
+
+      const json = await res.json();
+      let response = {
+        status: null,
+        msg: null,
+        showResendConfirmation: null,
+        confirmID: json.userID,
+      };
+
+      if (json.loggedIn === true) {
+        let tempUser = { ...user };
+        tempUser.loggedIn = true;
+        tempUser.lessonState = json.userState.courseStatus;
+        tempUser.userID = json.userState.userID;
+
+        setUser(tempUser);
+      }
+    };
+
+    if (user.loggedIn === false) {
+      let jwt = window.localStorage.getItem("mg-token");
+      if (jwt) {
+        tryLogin();
+      }
+    }
+  }, []);
+
   return (
     <DrawerProvider>
       <Box sx={styles.headerWrapper}>
@@ -17,14 +60,45 @@ export default function Header() {
             <Container>
               <Box sx={styles.headerInner}>
                 <Logo sx={styles.logo} />
+
                 <Box as="nav" sx={styles.navbar} className="navbar">
                   <Box as="ul" sx={styles.navList}>
-                    {menuItems.map(({ path, label }, i) => (
-                      <li key={i}>
-                        <NavLink path={path} label={label} />
-                      </li>
-                    ))}
+                    <Link href="/course">
+                      <a sx={styles.link}>Course</a>
+                    </Link>
                   </Box>
+
+                  <Box as="ul" sx={styles.navList}>
+                    <Link href="/blog">
+                      <a sx={styles.link}>Blog</a>
+                    </Link>
+                  </Box>
+
+                  {!user.loggedIn ? (
+                    <>
+                      <Box as="ul" sx={styles.navList}>
+                        <Link href="/create-account">
+                          <a sx={styles.link}>Register</a>
+                        </Link>
+                      </Box>
+
+                      <Box as="ul" sx={styles.navList}>
+                        <Link href="/login">
+                          <a sx={styles.link}>Login</a>
+                        </Link>
+                      </Box>
+                    </>
+                  ) : null}
+
+                  {user.loggedIn ? (
+                    <>
+                      <Box as="ul" sx={styles.navList}>
+                        <p sx={styles.link} onClick={() => user.logout(user, setUser)}>
+                          Logout
+                        </p>
+                      </Box>
+                    </>
+                  ) : null}
                 </Box>
 
                 <NavbarDrawer />
@@ -61,7 +135,7 @@ const styles = {
   },
   headerInner: {
     display: "flex",
-    alignItems: "center",
+    alignItems: "right",
     justifyContent: "space-between",
   },
   logo: {
@@ -69,15 +143,19 @@ const styles = {
   },
   navbar: {
     display: ["none", null, null, null, "flex"],
-    alignItems: "center",
-    flexGrow: 1,
+    alignItems: "end",
+    width: "100%",
+    justifyContent: "flex-end",
+
+    // flexGrow: 1,
     // justifyContent: 'center',
   },
   navList: {
     display: ["flex"],
     listStyle: "none",
     // marginLeft: 'auto',
-    flexGrow: 1,
+    // flexGrow: 1,
+
     p: 0,
     "li:last-child": {
       ml: ["auto"],
@@ -113,5 +191,10 @@ const styles = {
     path: {
       stroke: "text",
     },
+  },
+  link: {
+    textDecoration: "none",
+    cursor: "pointer",
+    margin: "1rem",
   },
 };
