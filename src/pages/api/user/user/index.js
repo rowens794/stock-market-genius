@@ -1,5 +1,5 @@
-import { getLoginSession } from "../../../../utils/userManagment/lib/auth";
-import { findUser } from "../../../../utils/userManagment/lib/user";
+import { getLoginSession } from "../../../../utils/lib/auth";
+import { findUser } from "../../../../utils/lib/user";
 
 export default async function user(req, res) {
   try {

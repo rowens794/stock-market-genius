@@ -1,4 +1,4 @@
-import { removeTokenCookie } from "../../../../utils/userManagment/lib/auth-cookies";
+import { removeTokenCookie } from "../../../../utils/lib/auth-cookies";
 
 export default async function logout(req, res) {
   removeTokenCookie(res);
