@@ -6,6 +6,13 @@ const nextConfiguration = {
   images: {
     domains: ["images.ctfassets.net", "i.ytimg.com"],
   },
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      require("./scripts/generate-sitemap");
+    }
+
+    return config;
+  },
 };
 
 module.exports = withPlugins([optimizedImages], nextConfiguration);

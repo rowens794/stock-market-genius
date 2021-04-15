@@ -1,7 +1,7 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { IoMdMenu } from "react-icons/io";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Link from "next/link";
 
 import { jsx, Box, Image } from "theme-ui";
@@ -16,6 +16,38 @@ import close from "assets/images/icons/close.png";
 const DrawerNav = () => {
   const { state, dispatch } = useContext(DrawerContext);
   const [user, setUser] = useContext(userContext);
+
+  useEffect(() => {
+    const tryLogin = async () => {
+      const res = await fetch(`/api/user/verifyjwt`, {
+        method: "POST", // or 'PUT'
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          token: window.localStorage.getItem("mg-token"),
+        }),
+      });
+
+      const json = await res.json();
+
+      if (json.loggedIn === true) {
+        let tempUser = { ...user };
+        tempUser.loggedIn = true;
+        tempUser.lessonState = json.userState.courseStatus;
+        tempUser.userID = json.userState.userID;
+
+        setUser(tempUser);
+      }
+    };
+
+    if (user.loggedIn === false) {
+      let jwt = window.localStorage.getItem("mg-token");
+      if (jwt) {
+        tryLogin();
+      }
+    }
+  }, []);
 
   // Toggle drawer
   const toggleHandler = React.useCallback(() => {

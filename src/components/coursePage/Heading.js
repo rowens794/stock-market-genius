@@ -40,7 +40,7 @@ const Heading = () => {
 
   const opts = {
     height: windowSize.width < 800 ? windowSize.width * (9 / 16) : 800 * (9 / 16),
-    width: windowSize.width < 800 ? windowSize.width : 800,
+    width: windowSize.width < 800 ? windowSize.width - 30 : 800,
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
       autoplay: 0,

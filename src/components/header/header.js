@@ -27,12 +27,6 @@ export default function Header() {
       });
 
       const json = await res.json();
-      let response = {
-        status: null,
-        msg: null,
-        showResendConfirmation: null,
-        confirmID: json.userID,
-      };
 
       if (json.loggedIn === true) {
         let tempUser = { ...user };

@@ -59,6 +59,7 @@ const styles = {
   section: {
     pt: [2, 2, 2, 2, 2, 2, 7],
     pb: [7, 7, 7, 9, 9, 10, 11],
+    pl: [3],
     maxWidth: [null, null, null, 455, 660],
     margin: "auto",
   },
