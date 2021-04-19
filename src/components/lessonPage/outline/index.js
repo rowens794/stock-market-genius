@@ -29,7 +29,7 @@ const Content = ({ orderedLessons, setNavSelection }) => {
             </div>
           ) : null}
 
-          <Link href={`/course/${lesson.id}`}>
+          <Link href={`/course/${lesson.slug}`}>
             <a sx={styles.lessonLink} onClick={() => setNavSelection("content")}>
               {lesson.title}
             </a>

@@ -52,7 +52,7 @@ export default function index({ lesson }) {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.header}>{title}</h2>
+      <h1 className={styles.header}>{title}</h1>
       <p className={styles.lessonIndicator}>
         Course Section {lesson.fields.sectionNumber} - Lesson {lesson.fields.lessonNumber}
       </p>

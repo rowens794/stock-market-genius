@@ -42,14 +42,14 @@ export async function getStaticPaths() {
     accessToken: process.env.ContentfulToken,
   });
 
-  let lessons = await client.getEntries({});
+  let lessons = await client.getEntries({ content_type: "lesson" });
 
-  let lessonIDs = lessons.items.map((lesson) => {
-    return { params: { lessonID: lesson.sys.id } };
+  let slugs = lessons.items.map((lesson) => {
+    return { params: { slug: lesson.fields.slug } };
   });
 
   return {
-    paths: lessonIDs,
+    paths: slugs,
     fallback: false,
   };
 }
@@ -60,8 +60,13 @@ export async function getStaticProps({ params }) {
     accessToken: process.env.ContentfulToken,
   });
 
-  let lessons = await client.getEntries({});
-  let lesson = await client.getEntry(params.lessonID);
+  let lessons = await client.getEntries({ content_type: "lesson" });
+  let targetLesson = null;
+  lessons.items.forEach((lesson) => {
+    if (lesson.fields.slug === params.slug) {
+      targetLesson = lesson;
+    }
+  });
 
   let posts = await client.getEntries({
     content_type: "blogPost",
@@ -70,8 +75,8 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       lessons: lessons.items,
-      lesson,
-      lessonID: params.lessonID,
+      lesson: targetLesson,
+      lessonID: targetLesson.sys.id,
       posts,
     }, // will be passed to the page component as props
   };

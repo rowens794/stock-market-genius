@@ -12,14 +12,14 @@ export default function index({ rawSort, lessonID }) {
   return (
     <div className={styles.container}>
       {prevLesson ? (
-        <Link href={`/course/${prevLesson.id}`}>
+        <Link href={`/course/${prevLesson.slug}`}>
           <a className={styles.activeButton}>Previous</a>
         </Link>
       ) : (
         <p className={styles.inactiveButton}>Previous</p>
       )}
       {nextLesson ? (
-        <Link href={`/course/${nextLesson.id}`}>
+        <Link href={`/course/${nextLesson.slug}`}>
           <a className={styles.activeButton}>Next</a>
         </Link>
       ) : (

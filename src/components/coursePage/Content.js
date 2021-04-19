@@ -14,7 +14,6 @@ const Content = ({ orderedLessons }) => {
     let lessons = section.map((lesson) => {
       let lessonMark = null;
       if (user.loggedIn && user.lessonState && user.lessonState[lesson.lessonID]) lessonMark = "complete";
-
       return (
         <div sx={styles.lessonFlex} key={lesson.id}>
           {!lessonMark ? (
@@ -29,7 +28,7 @@ const Content = ({ orderedLessons }) => {
             </div>
           ) : null}
 
-          <Link href={`/course/${lesson.id}`}>
+          <Link href={`/course/${lesson.slug}`}>
             <a sx={styles.lessonLink}>{lesson.title}</a>
           </Link>
         </div>
