@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 const contentful = require("contentful");
+import Head from "next/head";
 
 import { ThemeProvider } from "theme-ui";
 import theme from "theme";
@@ -8,10 +9,15 @@ import Layout from "components/layout";
 import Post from "../../../components/post";
 
 export default function IndexPage({ post }) {
+  let postData = post.items[0].fields;
   return (
     <ThemeProvider theme={theme}>
+      <Head>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <link rel="canonical" href={`https://beastockmarketgenius.com/blog/${postData.slug}`} />
+      </Head>
       <Layout>
-        <SEO title="Lesson Name" description="A discription of the current lesson." />
+        <SEO title={postData.title} description={postData.excerpt} />
         <div style={{ marginTop: "90px" }} />
         <Post post={post} />
       </Layout>
