@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 const contentful = require("contentful");
+import Head from "next/head";
 
 import { ThemeProvider } from "theme-ui";
 import theme from "theme";
@@ -16,11 +17,18 @@ import SubNav from "../../../components/lessonPage/subNav";
 export default function IndexPage({ lessons, lesson, lessonID, posts }) {
   let [navSelection, setNavSelection] = useState("content");
   let { sortedSections, rawSort } = orderLessons(lessons);
-
   return (
     <ThemeProvider theme={theme}>
+      <Head>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <link rel="canonical" href={`https://beastockmarketgenius.com/course/${lesson.fields.slug}`} />
+      </Head>
+
       <Layout>
-        <SEO title="Lesson Name" description="A discription of the current lesson." />
+        <SEO
+          title={lesson.fields.title}
+          description={`${lesson.fields.title} is lesson ${lesson.fields.lessonNumber} of course section ${lesson.fields.sectionNumber}.  Be a stock market genius is a free multipart course that teaches stock investing to complete beginners.`}
+        />
         <div style={{ marginTop: "90px" }} />
         <Video videoID={lesson.fields.youtubeVideoId} />
         <div style={{ maxWidth: "800px", margin: "auto" }}>
