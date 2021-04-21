@@ -86,7 +86,7 @@ const ImageContainer = ({ data, windowSize }) => {
 
   return (
     <div className={styles.imageContainer}>
-      <img src={`https:${data.file.url}`} alt="" width={picWidth} height={picHeight} />
+      <img src={`https:${data.file.url}?w=${picWidth}&h=${picHeight}`} alt="" width={picWidth} height={picHeight} />
     </div>
   );
 };
