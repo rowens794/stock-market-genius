@@ -76,12 +76,12 @@ const ImageContainer = ({ data, windowSize }) => {
   if (windowSize.width && windowSize.width > 550) {
     let scaleFactor = data.file.details.image.width / maxWidth;
     picWidth = maxWidth;
-    picHeight = data.file.details.image.height / scaleFactor;
+    picHeight = Math.round(data.file.details.image.height / scaleFactor);
   } else if (windowSize.width) {
     let targetWidth = windowSize.width * 0.9;
     let scaleFactor = data.file.details.image.width / targetWidth;
     picWidth = targetWidth;
-    picHeight = data.file.details.image.height / scaleFactor;
+    picHeight = Math.round(data.file.details.image.height / scaleFactor);
   }
 
   return (
