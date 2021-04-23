@@ -1,8 +1,10 @@
 var jwt = require("jsonwebtoken");
-
+import dbConnect from "../../../../utils/dbConnect";
 import User from "../../../../models/User";
 
 export default async function signup(req, res) {
+  await dbConnect();
+
   let decodedJWT = jwt.verify(req.body.token, process.env.JWT_SECRET);
 
   if (new Date() < new Date(decodedJWT.expire)) {
