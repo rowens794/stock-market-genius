@@ -42,7 +42,11 @@ export default function IndexPage({ lessons, lesson, lessonID, posts }) {
           {navSelection === "content" ? <ContentBody lesson={lesson} /> : null}
           {navSelection === "materials" ? <Materials lesson={lesson} /> : null}
           {navSelection === "outline" ? <CourseOutline orderedLessons={sortedSections} setNavSelection={setNavSelection} /> : null}
-          {navSelection === "blog" ? <Posts posts={posts.items} /> : null}
+          {navSelection === "blog" ? (
+            <div style={{ padding: "0 20px" }}>
+              <Posts posts={posts.items} />
+            </div>
+          ) : null}
         </div>
       </Layout>
     </ThemeProvider>
