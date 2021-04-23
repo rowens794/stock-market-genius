@@ -1,6 +1,7 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import react, { useState, useEffect } from "react";
+import Link from "next/link";
 import { jsx, Button } from "theme-ui";
 import { rgba } from "polished";
 import SectionHeading from "components/section-heading";
@@ -41,27 +42,29 @@ const Register = () => {
       {/* <Container> */}
       <SectionHeading sx={styles.heading} title="Register for the Course!" />
       <div sx={styles.textContent}>
-        I am currently preparing, recording and editing all of the course content. But I'd love it if you'd join the waitlist and I'll let you know as
-        soon as production has wrapped. As a bonus for pre-registering, I'll be sure to keep you up-to-date on my progress and send you preview
-        material as I finish each section.
+        The majority of the course content is written and currently accessible. Over the next few weeks I will be finalizing the content for the last
+        course section on valuation and recording all course videos. By registering, you'll be able to access all course materials, keep track of your
+        progress, and I'll keep you notified as the remaining content is finalized.
       </div>
 
       <div sx={styles.textContent}>
         Just to be clear, this is a <b>free course</b>. I'm not going to ask you to pay once it's complete.
       </div>
 
-      <label htmlFor="email" sx={styles.label}>
+      {/* <label htmlFor="email" sx={styles.label}>
         Email:
       </label>
       <br />
       <input type="text" id="email" name="email" defaultValue="example@mail.com" sx={styles.input}></input>
       <br />
       <br />
-      <br />
+      <br /> */}
 
-      <div onClick={subscribeHandler}>
-        <Button>Submit Registration</Button>
-      </div>
+      <Link href="/create-account">
+        <a>
+          <Button>Register for Free</Button>
+        </a>
+      </Link>
 
       {submissionState === "SUBMITTED" ? <p>Submission recieved</p> : null}
       {submissionState === "ERROR_CONTACT_EXISTS" ? <p>You've already registered</p> : null}

@@ -19,8 +19,8 @@ const data = [
   {
     id: 1,
     avatar: screenshot1,
-    name: "75 Minutes of Video Content",
-    designation: "Each lesson contains 3 short (5-7 minutes) and entertaining videos explaining the core concepts.",
+    name: "3 Hours of Video Content",
+    designation: "Each section contains roughly 6 short (5-7 minutes) and entertaining lessons explaining the key investing concepts.",
   },
   {
     id: 2,

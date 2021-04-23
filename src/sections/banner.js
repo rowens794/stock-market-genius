@@ -17,8 +17,8 @@ const Banner = () => {
           />
           <Box as="figure" sx={styles.illustration}>
             <Box sx={styles.buttonWrapper}>
-              <a href="#register" style={{ textDecoration: "none" }}>
-                <Button>Pre-Register Now</Button>
+              <a href="/create-account" style={{ textDecoration: "none" }}>
+                <Button>Register For Free</Button>
               </a>
             </Box>
             <Image src={illustration} alt="illustration" />
