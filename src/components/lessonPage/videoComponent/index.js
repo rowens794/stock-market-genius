@@ -57,6 +57,7 @@ export default function index({ videoID }) {
   };
 
   const trackUser = () => {};
+
   return (
     <div style={{ margin: "auto", textAlign: "center", height: `${videoHeight}px` }}>
       {!playVideo ? <CoverImage vid={videoID} height={videoHeight} width={videoWidth} setPlayVideo={setPlayVideo} /> : null}
@@ -69,13 +70,21 @@ const CoverImage = ({ vid, height, width, setPlayVideo }) => {
   const [hover, setHover] = useState(false);
   let iconSize = 64;
   return (
-    <div onClick={() => setPlayVideo(true)} className={styles.container} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
-      <div className={styles.icon} style={{ width: `${width}px`, marginTop: (height - iconSize) / 2 }}>
-        {!vid ? <p className={styles.underProduction}>Video Under Production</p> : null}
-        {hover ? <PlayIcon size={iconSize} color={"ff0000"} /> : <PlayIcon size={iconSize} color={"4D4D4D"} />}
-      </div>
+    <>
+      {!vid ? (
+        <div className={styles.container} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+          <p style={{ paddingTop: `${height / 3}px` }}>Video Under Production</p>
+          {/* {hover ? <PlayIcon size={iconSize} color={"ff0000"} /> : <PlayIcon size={iconSize} color={"4D4D4D"} />} */}
+        </div>
+      ) : (
+        <div onClick={() => setPlayVideo(true)} className={styles.container} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+          <div className={styles.icon} style={{ width: `${width}px`, marginTop: (height - iconSize) / 2 }}>
+            {hover ? <PlayIcon size={iconSize} color={"ff0000"} /> : <PlayIcon size={iconSize} color={"4D4D4D"} />}
+          </div>
 
-      <Image src={`https://i.ytimg.com/vi/${vid}/hq720.jpg`} height={height} width={width} />
-    </div>
+          <Image src={`https://i.ytimg.com/vi/${vid}/hq720.jpg`} height={height} width={width} />
+        </div>
+      )}
+    </>
   );
 };

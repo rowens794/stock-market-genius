@@ -36,3 +36,16 @@
   width: 100%;
   text-align: center;
 }
+
+.linkFullSize {
+  margin: auto;
+  display: block;
+  font-weight: 300;
+  margin: 0 1rem;
+  line-height: 1rem;
+  font-size: 0.8rem;
+  color: #0a8080;
+  cursor: pointer;
+  font-style: italic;
+  padding-bottom: 2rem;
+}

@@ -17,6 +17,11 @@ import SubNav from "../../../components/lessonPage/subNav";
 export default function IndexPage({ lessons, lesson, lessonID, posts }) {
   let [navSelection, setNavSelection] = useState("content");
   let { sortedSections, rawSort } = orderLessons(lessons);
+
+  useEffect(() => {
+    setNavSelection("content");
+  }, [lesson]);
+
   return (
     <ThemeProvider theme={theme}>
       <Head>
@@ -30,10 +35,10 @@ export default function IndexPage({ lessons, lesson, lessonID, posts }) {
           description={`${lesson.fields.title} is lesson ${lesson.fields.lessonNumber} of course section ${lesson.fields.sectionNumber}.  Be a stock market genius is a free multipart course that teaches stock investing to complete beginners.`}
         />
         <div style={{ marginTop: "90px" }} />
-        <Video videoID={lesson.fields.youtubeVideoId} />
+        <Video videoID={lesson.fields.youtubeId} />
         <div style={{ maxWidth: "800px", margin: "auto" }}>
           <NavBar navSelection={navSelection} setNavSelection={setNavSelection} />
-          <SubNav rawSort={rawSort} lessonID={lessonID} />
+          <SubNav rawSort={rawSort} lessonID={lessonID} setNavSelection={setNavSelection} />
           {navSelection === "content" ? <ContentBody lesson={lesson} /> : null}
           {navSelection === "materials" ? <Materials lesson={lesson} /> : null}
           {navSelection === "outline" ? <CourseOutline orderedLessons={sortedSections} setNavSelection={setNavSelection} /> : null}

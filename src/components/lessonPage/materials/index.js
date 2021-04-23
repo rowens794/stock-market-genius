@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Link from "next/link";
+
+import { userContext } from "../../../contexts/user";
 import styles from "./materials.module.css";
 
 export default function index({ lesson }) {
+  let [user, setUser] = useContext(userContext);
   let materials = lesson.fields.lessonMaterials;
   let keys = null;
   let items = null;
@@ -19,7 +22,18 @@ export default function index({ lesson }) {
       {keys ? (
         <div className={styles.container}>
           <h3>Lesson Materials</h3>
-          {items}
+          {!user.loggedIn ? (
+            <div>
+              <p>Only logged in users can access course materials.</p>
+              <p>
+                Registration is 100% free.{" "}
+                <Link href={`/create-account`}>
+                  <a>Create an account here.</a>
+                </Link>
+              </p>
+            </div>
+          ) : null}
+          {user.loggedIn ? items : null}
         </div>
       ) : (
         <div className={styles.container}>

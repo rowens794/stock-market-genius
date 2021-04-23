@@ -73,6 +73,11 @@ const ImageContainer = ({ data, windowSize }) => {
   let picWidth = 0;
   let picHeight = 0;
 
+  //adjust max width for really wide & short images
+  let imgWidth = data.file.details.image.width;
+  let imgHeight = data.file.details.image.height;
+  if (imgWidth / imgHeight > 3) maxWidth = 700;
+
   if (windowSize.width && windowSize.width > 550) {
     let scaleFactor = data.file.details.image.width / maxWidth;
     picWidth = Math.round(maxWidth);
@@ -85,9 +90,18 @@ const ImageContainer = ({ data, windowSize }) => {
   }
 
   return (
-    <div className={styles.imageContainer}>
-      <img src={`https:${data.file.url}?w=${picWidth}&h=${picHeight}`} alt="" width={picWidth} height={picHeight} />
-    </div>
+    <>
+      {picWidth && picHeight ? (
+        <div className={styles.imageContainer}>
+          <img src={`https:${data.file.url}?w=${picWidth}&h=${picHeight}`} alt="" width={picWidth} height={picHeight} />
+          <div style={{ width: picWidth, margin: "auto", textAlign: "right" }}>
+            <a href={`https:${data.file.url}`} className={styles.linkFullSize} target="blank">
+              link to full size image
+            </a>
+          </div>
+        </div>
+      ) : null}
+    </>
   );
 };
 
