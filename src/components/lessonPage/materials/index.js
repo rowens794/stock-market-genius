@@ -10,13 +10,12 @@ export default function index({ lesson }) {
   let keys = null;
   let items = null;
 
-  if (materials) {
+  if (Object.keys(materials).length > 0) {
     keys = Object.keys(materials);
     items = keys.map((key, i) => {
       return <MaterialCard item={materials[key]} key={i} />;
     });
   }
-
   return (
     <>
       {keys ? (
@@ -38,7 +37,7 @@ export default function index({ lesson }) {
       ) : (
         <div className={styles.container}>
           <h3>Lesson Materials</h3>
-          <p>No materials provided for this lesson.</p>
+          <p>Materials for this lesson are in production.</p>
         </div>
       )}
     </>
