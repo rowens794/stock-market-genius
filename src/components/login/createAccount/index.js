@@ -26,7 +26,7 @@ export default function index() {
     if (json.errMsg) {
       setError(json.errMsg);
     } else {
-      setError("Account created successfully.  Please check your email to confirm your account.");
+      setError("Account created successfully.  Please login.");
     }
   };
 

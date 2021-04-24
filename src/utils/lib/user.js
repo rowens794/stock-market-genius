@@ -34,7 +34,7 @@ export async function createUser({ username, password, confirmPassword, name }) 
       hash: hash,
       salt: salt,
       name: name,
-      accountConfirmed: false,
+      accountConfirmed: true, //emails arn't making it to inbox
       activationKey: activationKey,
       courseStatus: {
         l11: false,

@@ -17,8 +17,10 @@ export default function IndexPage({ lessons }) {
           description="This page displays the entire course curriculum.  From here you can see all of the subjects we will be studying and if you are registered - you can keep track of your progress."
         />
         <br />
-        <Heading />
-        <Content orderedLessons={orderedLessons} />
+        {/* <Heading /> */}
+        <div style={{ marginTop: "90px" }}>
+          <Content orderedLessons={orderedLessons} />
+        </div>
       </Layout>
     </ThemeProvider>
   );
