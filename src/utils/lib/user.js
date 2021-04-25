@@ -2,7 +2,7 @@ import crypto from "crypto";
 import User from "../../models/User";
 import dbConnect from "../../utils/dbConnect";
 import helpers from "../helpers";
-
+import saveToMailChimp from "./addToEmailList";
 /**
  * User methods. The example doesn't contain a DB, but for real applications you must use a
  * db here, such as MongoDB, Fauna, SQL, etc.
@@ -68,6 +68,7 @@ export async function createUser({ username, password, confirmPassword, name }) 
     });
 
     await user.save();
+    await saveToMailChimp(username, name);
 
     return user;
   } else if (!validPassword.passwordValid) {

@@ -1,4 +1,6 @@
 const client = require("@mailchimp/mailchimp_marketing");
+const User = require("../../../models/User");
+const { dbConnect } = require("../../../utils/dbConnect");
 
 export default async function handler(req, res) {
   client.setConfig({
@@ -6,28 +8,30 @@ export default async function handler(req, res) {
     server: process.env.serverLocation,
   });
 
-  const run = async () => {
-    let errors = null;
+  let users = await User.find({});
+
+  for (let i = 0; i < users.length; i++) {
+    let user = users[i];
+
     const response = await client.lists.batchListMembers(process.env.listID, {
       members: [
         {
-          email_address: req.headers.email,
+          email_address: user.email,
           status: "subscribed",
-          // merge_fields: {},
+          merge_fields: {
+            FULLNAME: user.name,
+          },
+          tags: ["App Registration"],
         },
       ],
     });
 
     if (response.errors.length) {
-      errors = response.errors[0].error_code;
+      console.log(response.errors[0]);
     }
-
-    return errors;
-  };
-
-  let error = await run();
+  }
 
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");
-  res.send(error);
+  res.send("done");
 }
