@@ -30,7 +30,7 @@ export async function sendWelcomeEmail(user) {
         content: [
           {
             type: "text/plain",
-            value: `Welcome to the course.  I'm so exicted that your here.  To activate your account please visit the following link. \n\n ${apiUrl}/confirmAccount/${userID}/${activationCode}`,
+            value: `Welcome to the course.  I'm so exicted that your here.  To activate your account please visit the following link. \n\n ${apiUrl}confirmAccount/${userID}/${activationCode}`,
           },
         ],
       },
