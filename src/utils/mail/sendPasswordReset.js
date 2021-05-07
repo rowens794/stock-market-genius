@@ -29,7 +29,7 @@ export async function sendPasswordReset(user) {
         content: [
           {
             type: "text/plain",
-            value: `To reset your password please visit the following link. \n\n ${apiUrl}/resetPassword/${userID}/${resetToken}`,
+            value: `To reset your password please visit the following link. \n\n ${apiUrl}resetPassword/${userID}/${resetToken}`,
           },
         ],
       },
